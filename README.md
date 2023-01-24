@@ -1,6 +1,6 @@
 # binp
-[![Go Reference](https://pkg.go.dev/static/frontend/badge/badge.svg)](https://pkg.go.dev/github.com/MrWaggel/binp)
-[![Go Report Card](https://goreportcard.com/badge/github.com/MrWaggel/binp?style=flat-square)](https://goreportcard.com/report/github.com/MrWaggel/binp)
+[![Go Reference](https://pkg.go.dev/static/frontend/badge/badge.svg)](https://pkg.go.dev/github.com/mrwaggel/binp)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mrwaggel/binp)](https://goreportcard.com/report/github.com/mrwaggel/binp)
 
 A fast performant bytes packing and unpacking module, to read and write primitive Go types from and to `[]byte`, without using the `unsafe` package.
 
