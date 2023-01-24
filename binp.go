@@ -1,3 +1,7 @@
+// A fast performant bytes packing and unpacking module, to read and
+// write primitive Go types from and to []byte, without using the unsafe package.
+//
+// Gilles Van Vlasselaer https://mrwaggel.be
 package binp
 
 import (
@@ -5,8 +9,11 @@ import (
 	"errors"
 )
 
-var ErrUnsupportedType = errors.New("unsupported type")
-var ErrExpectedTypeIdentifier = errors.New("expected type identifier")
+// Errors returned by package functions can be tested against these errors.
+var (
+	ErrUnsupportedType        = errors.New("unsupported type")
+	ErrExpectedTypeIdentifier = errors.New("expected type identifier")
+)
 
 // Pack packs all the given primitive datatype values into a slice of bytes.
 func Pack(values ...interface{}) ([]byte, error) {
@@ -37,7 +44,7 @@ func Pack(values ...interface{}) ([]byte, error) {
 //
 // Example: Packing an int64 and a bool would take up 10bytes.
 //
-// PackFixed(10, int64(123), true)
+//	PackFixed(10, int64(123), true)
 //
 // 1 byte that holds the identifier for the int64, 8 bytes that holds the int64,
 // 1 byte that holds the bool.
@@ -68,7 +75,6 @@ func PackNetwork(values ...interface{}) ([]byte, error) {
 		return nil, err
 	}
 	sizeTotal = size + 4 // First four bytes are the length of the rest
-
 	// Allocate slice
 	b := make([]byte, sizeTotal)
 
@@ -94,5 +100,3 @@ func PackNetworkFixed(size int, values ...interface{}) (b []byte, err error) {
 	}
 	return nil, err
 }
-
-// Gilles Van Vlasselaer https://mrwaggel.be

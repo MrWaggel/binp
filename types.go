@@ -1,5 +1,7 @@
 package binp
 
+// These byte constants are used to identify the next sequence of bytes according to the type
+// it represents.
 const (
 	Int = byte(iota) + 1
 	IntSlice

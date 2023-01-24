@@ -5,6 +5,12 @@ import (
 	"math"
 )
 
+// Read reads values from the given byte slice (see Pack()). The receivers must be pointers to
+// variables, given in the same order as they were packed initially. io.EOF
+//
+//	var i1, i2 int
+//	b, _ := Pack(i1, i2)
+//	Read(b, &i1, &i2)
 func Read(b []byte, receivers ...interface{}) error {
 	var offset, receiveIndex, sliceLen, stringLen, i, numBytes int
 	numBytes = len(b)
