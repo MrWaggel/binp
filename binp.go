@@ -1,4 +1,4 @@
-// A fast performant bytes packing and unpacking module, to read and
+// Package binp is a fast performant bytes packing and unpacking module, to read and
 // write primitive Go types from and to []byte, without using the unsafe package.
 //
 // Gilles Van Vlasselaer https://mrwaggel.be
@@ -54,7 +54,7 @@ func PackFixed(size int, values ...interface{}) (b []byte, err error) {
 	if err != nil {
 		return nil, err
 	}
-	return nil, err
+	return b, nil
 }
 
 // PackTo packs all the given values into the given b ([]byte).
@@ -98,5 +98,5 @@ func PackNetworkFixed(size int, values ...interface{}) (b []byte, err error) {
 	if err != nil {
 		return nil, err
 	}
-	return nil, err
+	return b, nil
 }
